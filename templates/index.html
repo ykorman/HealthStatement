@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Health Form</title>
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.1.3/css/bootstrap.min.css"
+          integrity="sha384-Jt6Tol1A2P9JBesGeCxNrxkmRFSjWCBW1Af7CSQSKsfMVQCqnUVWhZzG0puJMCK6" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <form method="post" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="child_name">שם הילד</label> 
+        <input id="child_name" name="child_name" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="child_id">תעודת זהות</label> 
+        <input id="child_id" name="child_id" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="child_birthdate">תאריך לידה</label> 
+        <input id="child_birthdate" name="child_birthdate" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="school_name">פרטי מעון היום/משפחתון (שם וכתובת)</label> 
+        <input id="school_name" name="school_name" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="school_manager">שם מנהל מעון היום/משפחתון</label> 
+        <input id="school_manager" name="school_manager" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label>הרני מצהיר בנוגע לילדי כדלהלן</label> 
+        <div>
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input name="checkbox" id="checkbox_0" type="checkbox" class="custom-control-input" value="temp" required="required"> 
+            <label for="checkbox_0" class="custom-control-label">מדדתי חום לילדי/ילדתי ונמצא כי חום גופו/ה מתחת ל-38 מעלות צלזיוס</label>
+          </div>
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input name="checkbox" id="checkbox_1" type="checkbox" class="custom-control-input" value="breathing" required="required"> 
+            <label for="checkbox_1" class="custom-control-label">(ילדי/ילדתי לא משתעל/ת ואין לו/לה קשיים בנשימה (למעט שיעול או קושי בנשימה הנובע ממצב כרוני כגון אסטמה או אלרגיה אחרת</label>
+          </div>
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input name="checkbox" id="checkbox_2" type="checkbox" class="custom-control-input" value="contact" required="required"> 
+            <label for="checkbox_2" class="custom-control-label">למיטב ידיעתי ילדי/ילדתי לא היה/היתה במגע קרוב עם חולה קורונה בשבועיים האחרונים</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="parent_name">שם ההורה</label> 
+        <input id="parent_name" name="parent_name" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="parent_phone">טלפון נייד</label> 
+        <input id="parent_phone" name="parent_phone" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="parent_phone">דוא"ל</label> 
+        <input id="parent_phone" name="parent_email" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="parent_id">תעודת זהות</label> 
+        <input id="parent_id" name="parent_id" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="date">תאריך</label> 
+        <input id="date" name="date" type="text" class="form-control" required="required">
+      </div>
+      <div class="form-group">
+        <label for="signature">חתימה</label> 
+        <input id="signature" name="signature" type="text" class="form-control" required="required">
+      </div> 
+      <div class="form-group">
+        <button name="submit" type="submit" class="btn btn-primary">אשר ושלח</button>
+      </div>
+    </form>
+  </body>
+</html>
