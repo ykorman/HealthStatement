@@ -32,19 +32,17 @@
       </div>
       <div class="form-group">
         <label>הרני מצהיר בנוגע לילדי כדלהלן</label>
-        <div dir="ltr">
-          <div class="custom-control custom-checkbox custom-control-inline">
-            <input name="checkbox" id="checkbox_0" type="checkbox" class="custom-control-input" value="temp" required="required"> 
-            <label for="checkbox_0" class="custom-control-label">מדדתי חום לילדי/ילדתי ונמצא כי חום גופו/ה מתחת ל-38 מעלות צלזיוס</label>
-          </div>
-          <div class="custom-control custom-checkbox custom-control-inline">
-            <input name="checkbox" id="checkbox_1" type="checkbox" class="custom-control-input" value="breathing" required="required"> 
-            <label for="checkbox_1" class="custom-control-label">(ילדי/ילדתי לא משתעל/ת ואין לו/לה קשיים בנשימה (למעט שיעול או קושי בנשימה הנובע ממצב כרוני כגון אסטמה או אלרגיה אחרת</label>
-          </div>
-          <div class="custom-control custom-checkbox custom-control-inline">
-            <input name="checkbox" id="checkbox_2" type="checkbox" class="custom-control-input" value="contact" required="required"> 
-            <label for="checkbox_2" class="custom-control-label">למיטב ידיעתי ילדי/ילדתי לא היה/היתה במגע קרוב עם חולה קורונה בשבועיים האחרונים</label>
-          </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="temp" id="temp" required="required">
+          <label class="form-check-label" for="temp">מדדתי חום לילדי/ילדתי ונמצא כי חום גופו/ה מתחת ל-38 מעלות צלזיוס</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="breathing" id="breathing" required="required">
+          <label class="form-check-label" for="breathing">(ילדי/ילדתי לא משתעל/ת ואין לו/לה קשיים בנשימה (למעט שיעול או קושי בנשימה הנובע ממצב כרוני כגון אסטמה או אלרגיה אחרת</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="contact" id="contact" required="required">
+          <label class="form-check-label" for="contact">למיטב ידיעתי ילדי/ילדתי לא היה/היתה במגע קרוב עם חולה קורונה בשבועיים האחרונים</label>
         </div>
       </div>
       <div class="form-group">
