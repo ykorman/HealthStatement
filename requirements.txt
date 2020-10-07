@@ -12,6 +12,7 @@ pdfrw==0.4
 Pillow==7.2.0
 pylint==2.6.0
 python-bidi==0.4.2
+python-dotenv==0.14.0
 reportlab==3.5.51
 six==1.15.0
 toml==0.10.1

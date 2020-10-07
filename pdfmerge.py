@@ -14,7 +14,7 @@ def create_overlay(form):
 	Create the data that will be overlayed on top
 	of the form that we want to fill
 	"""
-	c = canvas.Canvas('simple_form_overlay.pdf')
+	c = canvas.Canvas('form_overlay.pdf')
 
 	c.setFont("Hebrew", 12)
 	c.setFillColor(HexColor('#0033cc'))
@@ -57,11 +57,9 @@ def merge_pdfs(form_pdf, overlay_pdf, output):
 	writer = pdfrw.PdfWriter()
 	writer.write(output, form)
 
-def gen_filled_form(form):
+def gen_filled_form(form, form_name):
 	create_overlay(form)
-	merge_pdfs('simple_form.pdf', 
-			   'simple_form_overlay.pdf', 
-			   'merged_form.pdf')
+	merge_pdfs('form.pdf', 'form_overlay.pdf', form_name)
 	
 if __name__ == '__main__':
 	form = dict()
@@ -75,7 +73,4 @@ if __name__ == '__main__':
 	form['parent_id'] = '123456789'
 	form['date'] = '20/09/20'
 	form['signature'] = form['parent_name']
-	create_overlay(form)
-	merge_pdfs('simple_form.pdf', 
-			   'simple_form_overlay.pdf', 
-			   'merged_form.pdf')
+	gen_filled_form(form, 'form_merged.pdf')
