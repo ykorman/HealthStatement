@@ -8,8 +8,8 @@ from send_mail import send_mail
 app = Flask(__name__)
 celery = Celery(app.name, broker=os.environ.get('REDIS_URL'))
 
-def get_form_name(request):
-    return 'health_statement_' + request.cookies.get('child_id') + '_' + datetime.now().strftime('%d_%m_%Y' + '.pdf')
+def get_form_name(form_id):
+    return 'health_statement_' + form_id + '_' + datetime.now().strftime('%d_%m_%Y' + '.pdf')
 
 @celery.task
 def send_background_mail(form_name, creds, msg):
@@ -19,15 +19,16 @@ def send_background_mail(form_name, creds, msg):
 @app.route('/',methods=('GET', 'POST'))
 def index():
     if request.method == 'POST':
+        gen_filled_form(request.form, get_form_name(request.form.get('child_id')))
         resp = make_response(redirect(url_for('download')))
         list(map(lambda e: resp.set_cookie(e[0], e[1]), request.form.items()))
-        gen_filled_form(request.form, get_form_name(request))
         return resp
 
     return render_template('index.html', cur_date=datetime.now().strftime('%d/%m/%Y'))
 
 @app.route('/download')
 def download():
+    form_id = request.cookies.get('child_id')
     creds = dict()
     creds['smtp'] = os.environ.get('MAIL_SMTP')
     creds['username'] = os.environ.get('MAIL_USER')
@@ -35,8 +36,8 @@ def download():
     msg = dict()
     msg['subject'] = u'הצהרת בריאות הילד לתאריך' + ' ' + datetime.now().strftime('%d/%m/%Y')
     msg['from'] = creds['username']
-    msg['attachment'] = get_form_name(request)
+    msg['attachment'] = get_form_name(form_id)
     msg['destination'] = request.cookies.get('parent_email')
     msg['body'] = u'מצורפת הצהרת בריאות חתומה'
-    send_background_mail.apply_async(args=(get_form_name(request), creds, msg))
-    return send_file(get_form_name(request))
+    send_background_mail.apply_async(args=(get_form_name(form_id), creds, msg))
+    return send_file(get_form_name(form_id))
