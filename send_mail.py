@@ -1,5 +1,6 @@
 
 # credits: http://linuxcursor.com/python-programming/06-how-to-send-pdf-ppt-attachment-with-html-body-in-python-script
+# TODO: consider switching to https://pythonhosted.org/Flask-Mail/
 
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
