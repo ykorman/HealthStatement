@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, send_file, make_response
 from celery import Celery
-from datetime import datetime
+from datetime import datetime, timedelta
 from pdfmerge import gen_filled_form
 from send_mail import send_mail
 import redis
@@ -26,9 +26,10 @@ def send_background_mail(creds, msg):
 @app.route('/',methods=('GET', 'POST'))
 def index():
     if request.method == 'POST':
+        expire_date = datetime.now() + timedelta(days=90)
         gen_filled_form(request.form, get_form_name(request.form.get('child_id')))
         resp = make_response(redirect(url_for('download')))
-        list(map(lambda e: resp.set_cookie(e[0], e[1]), request.form.items()))
+        list(map(lambda e: resp.set_cookie(e[0], e[1], expires=expire_date), request.form.items()))
         return resp
 
     return render_template('index.html', cur_date=datetime.now().strftime('%d/%m/%Y'))
