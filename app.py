@@ -46,6 +46,7 @@ def download():
     msg['from'] = creds['username']
     msg['attachment'] = form_name
     msg['destination'] = request.cookies.get('parent_email')
+    msg['cc'] = os.environ.get('MAIL_CC')
     msg['body'] = u'מצורפת הצהרת בריאות חתומה'
     with open(form_name, 'rb') as f:
         form_data = base64.b64encode(f.read())

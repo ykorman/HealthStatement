@@ -3,7 +3,7 @@ export
 SHELL := /bin/bash
 FLASK_ENV ?= development
 
-ENV_VARS = MAIL_SMTP MAIL_USER MAIL_PASSWORD REDIS_URL
+ENV_VARS = MAIL_SMTP MAIL_USER MAIL_PASSWORD REDIS_URL MAIL_CC
 
 run:
 	source ./env/bin/activate && heroku local

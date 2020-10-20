@@ -15,6 +15,7 @@ def send_mail(creds, msg):
     message['Subject'] = msg['subject']
     message['From'] = msg['from']
     message['To'] = msg['destination']
+    message['Cc'] = msg['cc']
     message.attach(MIMEText(msg['body'], "plain"))
     with open(msg['attachment'], 'rb') as f:
         attachment = MIMEApplication(f.read(), _subtype='pdf')
@@ -31,6 +32,7 @@ if __name__ == "__main__":
     msg['subject'] = 'Test mail'
     msg['from'] = creds['username']
     msg['attachment'] = 'merged_form.pdf'
-    msg['destination'] = 'ykorman@gmail.com'
+    msg['destination'] = 'ykorman+test@gmail.com'
+    msg['cc'] = 'ykorman+testcc@gmail.com'
     msg['body'] = u'בדיקות אחד שתים 2345 ארבעים'
     send_mail(creds, msg)
